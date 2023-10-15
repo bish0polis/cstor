@@ -24,14 +24,14 @@ uZFS embedds the [cStor Data Engine](https://github.com/openebs/libcstor) that h
 -   Interact with the other uZFS ZVOLs in the cluster to resync the data
 
 *Note: The uZFS server binary with embedded IOCTL server and cStor Data Engine is referred
-to in the below document as zrepl.*
+to in the document below as zrepl.*
 
 
 # Contribute & Develop
 We have a separate document with [contribution guidelines](./.github/CONTRIBUTING.md).
 
 # Building
-In addition to standard dependencies of ZFS on Linux project following
+In addition to standard dependencies of ZFS on Linux project the following
 packages need to be installed on a ubuntu machine:
 
 ```bash
@@ -56,7 +56,7 @@ sudo make
 # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
 sudo cp *.so /usr/lib
 ```
-Clone the shim layer which adds the core interfaces..
+Clone the shim layer, which adds the core interfaces..
 
 ```bash
 git clone https://github.com/openebs/spl
@@ -68,8 +68,8 @@ make -j4
 ```
 
 Special configure option `--enable-uzfs` should be used in order to create
-zfs and zpool commands which don't call into the kernel using ioctls, but
-instead call into uZFS process for serving "ioctls" using unix domain socket.
+zfs and zpool commands, which don't call into the kernel using ioctls but
+instead call into uZFS process for serving "ioctls" using a unix domain socket.
 Other than that the build steps are the same as for ZoL:
 
 ```bash
@@ -81,14 +81,14 @@ make
 ```
 
 Additional configure option `--with-fio=<path-to-fio-repo>` can be supplied
-in case that fio engine for `zrepl` is wanted.
+in case the fio engine for `zrepl` is wanted.
 
 # Running it
 
 This assumes that you have configured zfs with `--enable-uzfs=yes` option.
 To try zpool and zfs commands, start `cmd/zrepl/zrepl` binary with `sudo` and
 leave it running. Now zpool and zfs commands from cmd/ directory can be
-run in usual way and they will act on running instance of `zrepl`.
+run in the usual way and they will act on a running instance of `zrepl`.
 
 # Testing performance
 
